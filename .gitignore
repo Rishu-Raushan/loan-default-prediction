@@ -1,5 +1,10 @@
-# Ignore interview guide
+# Ignore interview guide and documentation files
 INTERVIEW_GUIDE.md
+CHECKLIST.md
+QUICKSTART.md
+setup_environment.bat
+SOLUTION_APPROACH.md
+SOLUTION_SUMMARY.md
 
 # Python
 __pycache__/
