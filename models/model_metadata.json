@@ -1,0 +1,42 @@
+{
+    "model_name": "xgboost_tuned",
+    "features": [
+        "Age_Days",
+        "Registration_Days",
+        "Loan_Annuity",
+        "Age_Years",
+        "Registration_Years",
+        "Annuity_Income_Ratio",
+        "ID_Days",
+        "Employed_Days",
+        "Age_Years_x_Employment_Years",
+        "Employment_Years",
+        "ID_Years",
+        "Credit_to_Annuity_Ratio",
+        "Credit_Amount",
+        "Score_Source_3",
+        "Score_Range",
+        "Score_Source_2",
+        "Max_Score",
+        "Min_Score",
+        "Income_to_Credit_Ratio",
+        "Average_Score",
+        "Client_Income_x_Credit_Amount",
+        "Population_Region_Relative",
+        "Client_Income",
+        "Phone_Change",
+        "Phone_Change_Years",
+        "Income_Per_Family_Member",
+        "Total_Assets_x_Client_Income",
+        "Application_Process_Hour",
+        "Type_Organization",
+        "Client_Occupation"
+    ],
+    "optimal_threshold": 0.1,
+    "test_performance": {
+        "roc_auc": 0.9915297271525999,
+        "precision": 0.8045808966861598,
+        "recall": 0.8384966988318944,
+        "f1": 0.8211887590151703
+    }
+}

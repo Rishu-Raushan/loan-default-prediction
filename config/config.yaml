@@ -1,0 +1,89 @@
+data:
+  raw_data_path: "data/Dataset.csv"
+  data_dictionary_path: "data/Data_Dictionary.csv"
+  processed_data_path: "data/processed_data.csv"
+  test_size: 0.2
+  validation_size: 0.2
+  random_state: 42
+
+preprocessing:
+  missing_value_threshold: 0.5
+  outlier_method: "iqr"
+  outlier_threshold: 1.5
+  scaling_method: "standard"
+  encoding_method: "target"
+
+feature_engineering:
+  create_interaction_features: true
+  create_polynomial_features: false
+  polynomial_degree: 2
+  feature_selection_method: "importance"
+  n_features_to_select: 30
+
+model:
+  handle_imbalance: true
+  imbalance_strategy: "smote"
+  smote_sampling_strategy: 0.5
+  n_folds: 5
+  
+models_to_train:
+  - name: "logistic_regression"
+    params:
+      max_iter: 1000
+      class_weight: "balanced"
+  - name: "random_forest"
+    params:
+      n_estimators: 200
+      max_depth: 15
+      class_weight: "balanced"
+  - name: "xgboost"
+    params:
+      n_estimators: 200
+      max_depth: 7
+      learning_rate: 0.05
+      scale_pos_weight: 3
+  - name: "lightgbm"
+    params:
+      n_estimators: 200
+      max_depth: 7
+      learning_rate: 0.05
+      class_weight: "balanced"
+  - name: "catboost"
+    params:
+      iterations: 200
+      depth: 7
+      learning_rate: 0.05
+      auto_class_weights: "Balanced"
+
+hyperparameter_tuning:
+  enable: true
+  n_trials: 50
+  timeout: 3600
+
+evaluation:
+  metrics:
+    - "roc_auc"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "pr_auc"
+  threshold_optimization: true
+  business_cost_fn_ratio: 5
+
+deployment:
+  model_registry: "mlflow"
+  api_framework: "fastapi"
+  port: 8000
+  workers: 4
+  monitoring_interval: 300
+  drift_detection_threshold: 0.05
+  canary_traffic_splits:
+    - 0.1
+    - 0.5
+    - 1.0
+
+output:
+  models_dir: "models"
+  reports_dir: "reports"
+  logs_dir: "logs"
+  plots_dir: "reports/plots"

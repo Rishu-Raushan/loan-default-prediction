@@ -1,0 +1,2 @@
+total_loans,actual_defaults,predicted_defaults,true_positives,false_negatives,false_positives,true_negatives,default_detection_rate,false_positive_rate
+24372,1969,2533,1830,139,703,21700,92.94057897409853,3.1379725929563005
